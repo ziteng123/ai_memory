@@ -1,0 +1,35 @@
+{
+  "redis": {
+    "url": "redis://localhost:6379",
+    "collection_name": "mcp_memories",
+    "db": 0
+  },
+  "mem0": {
+    "llm": {
+      "provider": "ollama",
+      "config": {
+        "model": "gemma3:12b",
+        "temperature": 0.1,
+        "max_tokens": 1000
+      }
+    },
+    "embedder": {
+      "provider": "ollama",
+      "config": {
+        "model": "nomic-embed-text:latest"
+      }
+    },
+    "vector_store": {
+      "provider": "redis",
+      "config": {
+        "collection_name": "mcp_memories",
+        "embedding_model_dims": 768
+      }
+    }
+  },
+  "server": {
+    "name": "memory-mcp",
+    "version": "1.0.0",
+    "log_level": "INFO"
+  }
+}
